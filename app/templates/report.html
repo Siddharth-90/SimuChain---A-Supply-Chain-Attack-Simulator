@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h2>Scan Report</h2>
+  <div class="risk {{report.risk_level | lower}}">
+    Overall Risk: <strong>{{report.risk_level}}</strong> (score: {{report.risk_score}})
+  </div>
+
+  <h3>Dependencies</h3>
+  <table>
+    <tr><th>Name</th><th>Version Spec</th></tr>
+    {% for d in report.dependencies %}
+      <tr><td>{{d.name}}</td><td>{{d.version}}</td></tr>
+    {% endfor %}
+  </table>
+
+  <h3>Findings</h3>
+  {% if report.findings %}
+    <table>
+      <tr><th>Type</th><th>Package</th><th>Detail</th><th>Severity</th></tr>
+      {% for f in report.findings %}
+        <tr>
+          <td>{{f.type}}</td>
+          <td>{{f.package}}</td>
+          <td>
+            {% if f.type == 'TYPO' %}
+              Looks like <code>{{f.looks_like}}</code> (score={{f.score}}). {{f.description}}
+            {% else %}
+              {{f.description}}{% if f.fix %} · Fix: <code>{{f.fix}}</code>{% endif %}
+            {% endif %}
+          </td>
+          <td class="sev {{f.severity | lower}}">{{f.severity}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No issues detected 🎉</p>
+  {% endif %}
+</section>
+<a class="button" href="/">Scan another file</a>
+{% endblock %}

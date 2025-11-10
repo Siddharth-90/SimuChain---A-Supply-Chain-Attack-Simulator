@@ -1,0 +1,21 @@
+* { box-sizing: border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+body { margin: 0; background: #0b1220; color: #e6eefc; }
+header { padding: 24px; text-align: center; background: #0e1730; border-bottom: 1px solid #223; }
+main { max-width: 960px; margin: 24px auto; padding: 0 16px; }
+.card { background: #141c35; border: 1px solid #223; border-radius: 12px; padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+h1,h2,h3 { margin-top: 0; }
+input[type="file"] { margin: 12px 0; }
+button, .button {
+  display: inline-block; padding: 10px 16px; border-radius: 10px;
+  background: #3b82f6; color: white; border: none; text-decoration:none;
+}
+.button:hover, button:hover { filter: brightness(1.1); cursor: pointer; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; }
+th, td { border-bottom: 1px solid #223; padding: 8px; text-align: left; }
+.hint { opacity: 0.8; }
+.risk.low { background: #12351a; padding: 10px; border-radius: 8px; }
+.risk.medium { background: #352f12; padding: 10px; border-radius: 8px; }
+.risk.high { background: #351212; padding: 10px; border-radius: 8px; }
+.sev.low { color: #7dd3fc; }
+.sev.medium { color: #fde68a; }
+.sev.high { color: #fca5a5; }

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h2>Upload <code>requirements.txt</code></h2>
+  <form action="/scan" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".txt" required />
+    <button type="submit">Scan</button>
+  </form>
+  <p class="hint">Tip: try the sample files in <code>sample_projects/</code></p>
+</section>
+{% endblock %}
